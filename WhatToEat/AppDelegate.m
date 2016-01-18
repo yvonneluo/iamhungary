@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "FirstViewController.h"
+#import "SwipeViewController.h"
+#import "CollectionViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -18,15 +20,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     UITabBarController * tabBarController = [[UITabBarController alloc] init];
-    FirstViewController  * firstViewController = [[FirstViewController alloc]init];
-
-    NSArray *controllers = [NSArray arrayWithObject:firstViewController];
+    SwipeViewController * firstViewController = [[SwipeViewController alloc]init];
+    CollectionViewController *collectionViewController = [[CollectionViewController alloc]init];
+    NSArray *controllers = [NSArray arrayWithObjects:firstViewController, collectionViewController, nil];
     tabBarController.viewControllers=controllers;
+
     NSArray* items = [tabBarController.tabBar items];
+
     UITabBarItem * tabBarItem = [items objectAtIndex:0];
     [tabBarItem setTitle:@"Home"];
     UIImage *iconImage = [UIImage imageNamed:@"apple"];
+
+
+    UITabBarItem * tabBarItem2 = [items objectAtIndex:1];
+    [tabBarItem2 setTitle:@"Collection"];
+    UIImage *collectionViewIcon = [UIImage imageNamed:@"hamburger"];
+
     [tabBarItem setImage:iconImage];
+    [tabBarItem2 setImage:collectionViewIcon];
 
     self.window.rootViewController = tabBarController;
     return YES;

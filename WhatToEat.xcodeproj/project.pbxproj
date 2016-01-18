@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		DC77D3501C4C4C2400D2E06B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D34F1C4C4C2400D2E06B /* main.m */; };
 		DC77D3531C4C4C2400D2E06B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3521C4C4C2400D2E06B /* AppDelegate.m */; };
-		DC77D3561C4C4C2400D2E06B /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3551C4C4C2400D2E06B /* FirstViewController.m */; };
-		DC77D3591C4C4C2400D2E06B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3581C4C4C2400D2E06B /* SecondViewController.m */; };
+		DC77D3561C4C4C2400D2E06B /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3551C4C4C2400D2E06B /* SwipeViewController.m */; };
+		DC77D3591C4C4C2400D2E06B /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3581C4C4C2400D2E06B /* CollectionViewController.m */; };
 		DC77D35E1C4C4C2400D2E06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC77D35D1C4C4C2400D2E06B /* Assets.xcassets */; };
 		DC77D36C1C4C4C2400D2E06B /* WhatToEatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D36B1C4C4C2400D2E06B /* WhatToEatTests.m */; };
 		DC77D3771C4C4C2400D2E06B /* WhatToEatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3761C4C4C2400D2E06B /* WhatToEatUITests.m */; };
@@ -42,10 +42,10 @@
 		DC77D34F1C4C4C2400D2E06B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC77D3511C4C4C2400D2E06B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DC77D3521C4C4C2400D2E06B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DC77D3541C4C4C2400D2E06B /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		DC77D3551C4C4C2400D2E06B /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		DC77D3571C4C4C2400D2E06B /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		DC77D3581C4C4C2400D2E06B /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		DC77D3541C4C4C2400D2E06B /* SwipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwipeViewController.h; sourceTree = "<group>"; };
+		DC77D3551C4C4C2400D2E06B /* SwipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwipeViewController.m; sourceTree = "<group>"; };
+		DC77D3571C4C4C2400D2E06B /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		DC77D3581C4C4C2400D2E06B /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		DC77D35D1C4C4C2400D2E06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC77D3621C4C4C2400D2E06B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC77D36B1C4C4C2400D2E06B /* WhatToEatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatToEatTests.m; sourceTree = "<group>"; };
@@ -113,10 +113,10 @@
 				DCE79F811C4C739200C46E1F /* OverlayView.m */,
 				DC77D3511C4C4C2400D2E06B /* AppDelegate.h */,
 				DC77D3521C4C4C2400D2E06B /* AppDelegate.m */,
-				DC77D3541C4C4C2400D2E06B /* FirstViewController.h */,
-				DC77D3551C4C4C2400D2E06B /* FirstViewController.m */,
-				DC77D3571C4C4C2400D2E06B /* SecondViewController.h */,
-				DC77D3581C4C4C2400D2E06B /* SecondViewController.m */,
+				DC77D3541C4C4C2400D2E06B /* SwipeViewController.h */,
+				DC77D3551C4C4C2400D2E06B /* SwipeViewController.m */,
+				DC77D3571C4C4C2400D2E06B /* CollectionViewController.h */,
+				DC77D3581C4C4C2400D2E06B /* CollectionViewController.m */,
 				DC77D35D1C4C4C2400D2E06B /* Assets.xcassets */,
 				DC77D3621C4C4C2400D2E06B /* Info.plist */,
 				DC77D34E1C4C4C2400D2E06B /* Supporting Files */,
@@ -281,10 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCE79F821C4C739200C46E1F /* DraggableView.m in Sources */,
-				DC77D3591C4C4C2400D2E06B /* SecondViewController.m in Sources */,
+				DC77D3591C4C4C2400D2E06B /* CollectionViewController.m in Sources */,
 				DCE79F831C4C739200C46E1F /* OverlayView.m in Sources */,
 				DC77D3531C4C4C2400D2E06B /* AppDelegate.m in Sources */,
-				DC77D3561C4C4C2400D2E06B /* FirstViewController.m in Sources */,
+				DC77D3561C4C4C2400D2E06B /* SwipeViewController.m in Sources */,
 				DC77D3501C4C4C2400D2E06B /* main.m in Sources */,
 				DCE79F7D1C4C732700C46E1F /* DraggableViewBackground.m in Sources */,
 			);
