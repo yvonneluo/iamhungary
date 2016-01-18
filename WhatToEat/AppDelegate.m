@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "FirstViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +16,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    UITabBarController * tabBarController = [[UITabBarController alloc] init];
+    FirstViewController  * firstViewController = [[FirstViewController alloc]init];
+
+    NSArray *controllers = [NSArray arrayWithObject:firstViewController];
+    tabBarController.viewControllers=controllers;
+    NSArray* items = [tabBarController.tabBar items];
+    UITabBarItem * tabBarItem = [items objectAtIndex:0];
+    [tabBarItem setTitle:@"Home"];
+    UIImage *iconImage = [UIImage imageNamed:@"apple"];
+    [tabBarItem setImage:iconImage];
+
+    self.window.rootViewController = tabBarController;
     return YES;
 }
 

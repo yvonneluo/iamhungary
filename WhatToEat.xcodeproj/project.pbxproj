@@ -11,11 +11,13 @@
 		DC77D3531C4C4C2400D2E06B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3521C4C4C2400D2E06B /* AppDelegate.m */; };
 		DC77D3561C4C4C2400D2E06B /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3551C4C4C2400D2E06B /* FirstViewController.m */; };
 		DC77D3591C4C4C2400D2E06B /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3581C4C4C2400D2E06B /* SecondViewController.m */; };
-		DC77D35C1C4C4C2400D2E06B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC77D35A1C4C4C2400D2E06B /* Main.storyboard */; };
 		DC77D35E1C4C4C2400D2E06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC77D35D1C4C4C2400D2E06B /* Assets.xcassets */; };
-		DC77D3611C4C4C2400D2E06B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC77D35F1C4C4C2400D2E06B /* LaunchScreen.storyboard */; };
 		DC77D36C1C4C4C2400D2E06B /* WhatToEatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D36B1C4C4C2400D2E06B /* WhatToEatTests.m */; };
 		DC77D3771C4C4C2400D2E06B /* WhatToEatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3761C4C4C2400D2E06B /* WhatToEatUITests.m */; };
+		DCE79F7A1C4C6ADF00C46E1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE79F791C4C6ADF00C46E1F /* Images.xcassets */; };
+		DCE79F7D1C4C732700C46E1F /* DraggableViewBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE79F7C1C4C732700C46E1F /* DraggableViewBackground.m */; };
+		DCE79F821C4C739200C46E1F /* DraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE79F7F1C4C739200C46E1F /* DraggableView.m */; };
+		DCE79F831C4C739200C46E1F /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE79F811C4C739200C46E1F /* OverlayView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,16 +46,19 @@
 		DC77D3551C4C4C2400D2E06B /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		DC77D3571C4C4C2400D2E06B /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		DC77D3581C4C4C2400D2E06B /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		DC77D35B1C4C4C2400D2E06B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC77D35D1C4C4C2400D2E06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DC77D3601C4C4C2400D2E06B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC77D3621C4C4C2400D2E06B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC77D3671C4C4C2400D2E06B /* WhatToEatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatToEatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC77D36B1C4C4C2400D2E06B /* WhatToEatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatToEatTests.m; sourceTree = "<group>"; };
 		DC77D36D1C4C4C2400D2E06B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC77D3721C4C4C2400D2E06B /* WhatToEatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatToEatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC77D3761C4C4C2400D2E06B /* WhatToEatUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatToEatUITests.m; sourceTree = "<group>"; };
 		DC77D3781C4C4C2400D2E06B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCE79F791C4C6ADF00C46E1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DCE79F7B1C4C732700C46E1F /* DraggableViewBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableViewBackground.h; sourceTree = "<group>"; };
+		DCE79F7C1C4C732700C46E1F /* DraggableViewBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableViewBackground.m; sourceTree = "<group>"; };
+		DCE79F7E1C4C739200C46E1F /* DraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableView.h; sourceTree = "<group>"; };
+		DCE79F7F1C4C739200C46E1F /* DraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableView.m; sourceTree = "<group>"; };
+		DCE79F801C4C739200C46E1F /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
+		DCE79F811C4C739200C46E1F /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				DC77D34B1C4C4C2400D2E06B /* WhatToEat.app */,
-				DC77D3671C4C4C2400D2E06B /* WhatToEatTests.xctest */,
-				DC77D3721C4C4C2400D2E06B /* WhatToEatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,17 +107,22 @@
 		DC77D34D1C4C4C2400D2E06B /* WhatToEat */ = {
 			isa = PBXGroup;
 			children = (
+				DCE79F7E1C4C739200C46E1F /* DraggableView.h */,
+				DCE79F7F1C4C739200C46E1F /* DraggableView.m */,
+				DCE79F801C4C739200C46E1F /* OverlayView.h */,
+				DCE79F811C4C739200C46E1F /* OverlayView.m */,
 				DC77D3511C4C4C2400D2E06B /* AppDelegate.h */,
 				DC77D3521C4C4C2400D2E06B /* AppDelegate.m */,
 				DC77D3541C4C4C2400D2E06B /* FirstViewController.h */,
 				DC77D3551C4C4C2400D2E06B /* FirstViewController.m */,
 				DC77D3571C4C4C2400D2E06B /* SecondViewController.h */,
 				DC77D3581C4C4C2400D2E06B /* SecondViewController.m */,
-				DC77D35A1C4C4C2400D2E06B /* Main.storyboard */,
 				DC77D35D1C4C4C2400D2E06B /* Assets.xcassets */,
-				DC77D35F1C4C4C2400D2E06B /* LaunchScreen.storyboard */,
 				DC77D3621C4C4C2400D2E06B /* Info.plist */,
 				DC77D34E1C4C4C2400D2E06B /* Supporting Files */,
+				DCE79F791C4C6ADF00C46E1F /* Images.xcassets */,
+				DCE79F7B1C4C732700C46E1F /* DraggableViewBackground.h */,
+				DCE79F7C1C4C732700C46E1F /* DraggableViewBackground.m */,
 			);
 			path = WhatToEat;
 			sourceTree = "<group>";
@@ -180,7 +188,6 @@
 			);
 			name = WhatToEatTests;
 			productName = WhatToEatTests;
-			productReference = DC77D3671C4C4C2400D2E06B /* WhatToEatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		DC77D3711C4C4C2400D2E06B /* WhatToEatUITests */ = {
@@ -198,7 +205,6 @@
 			);
 			name = WhatToEatUITests;
 			productName = WhatToEatUITests;
-			productReference = DC77D3721C4C4C2400D2E06B /* WhatToEatUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -248,9 +254,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC77D3611C4C4C2400D2E06B /* LaunchScreen.storyboard in Resources */,
 				DC77D35E1C4C4C2400D2E06B /* Assets.xcassets in Resources */,
-				DC77D35C1C4C4C2400D2E06B /* Main.storyboard in Resources */,
+				DCE79F7A1C4C6ADF00C46E1F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCE79F821C4C739200C46E1F /* DraggableView.m in Sources */,
 				DC77D3591C4C4C2400D2E06B /* SecondViewController.m in Sources */,
+				DCE79F831C4C739200C46E1F /* OverlayView.m in Sources */,
 				DC77D3531C4C4C2400D2E06B /* AppDelegate.m in Sources */,
 				DC77D3561C4C4C2400D2E06B /* FirstViewController.m in Sources */,
 				DC77D3501C4C4C2400D2E06B /* main.m in Sources */,
+				DCE79F7D1C4C732700C46E1F /* DraggableViewBackground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,25 +320,6 @@
 			targetProxy = DC77D3731C4C4C2400D2E06B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		DC77D35A1C4C4C2400D2E06B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC77D35B1C4C4C2400D2E06B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DC77D35F1C4C4C2400D2E06B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC77D3601C4C4C2400D2E06B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DC77D3791C4C4C2400D2E06B /* Debug */ = {
@@ -502,6 +491,7 @@
 				DC77D37D1C4C4C2400D2E06B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC77D37E1C4C4C2400D2E06B /* Build configuration list for PBXNativeTarget "WhatToEatTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +500,7 @@
 				DC77D3801C4C4C2400D2E06B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC77D3811C4C4C2400D2E06B /* Build configuration list for PBXNativeTarget "WhatToEatUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +509,7 @@
 				DC77D3831C4C4C2400D2E06B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
