@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UITabBarController * tabBarController = [[UITabBarController alloc] init];
     SwipeViewController * firstViewController = [[SwipeViewController alloc]init];
     CollectionViewController *collectionViewController = [[CollectionViewController alloc]init];
@@ -40,6 +40,7 @@
     [tabBarItem2 setImage:collectionViewIcon];
 
     self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
