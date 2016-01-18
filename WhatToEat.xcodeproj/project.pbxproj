@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45706C2527E9C9D80796A39F /* libPods-WhatToEat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E8C1B6DA96BBC59973501F /* libPods-WhatToEat.a */; };
+		DC0ADA511C4CC1B700D43A44 /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */; };
+		DC0ADA521C4CC1B700D43A44 /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0ADA501C4CC1B700D43A44 /* YPAPISample.m */; };
 		DC77D3501C4C4C2400D2E06B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D34F1C4C4C2400D2E06B /* main.m */; };
 		DC77D3531C4C4C2400D2E06B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3521C4C4C2400D2E06B /* AppDelegate.m */; };
 		DC77D3561C4C4C2400D2E06B /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3551C4C4C2400D2E06B /* SwipeViewController.m */; };
@@ -38,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36B44C89135726DF6C167980 /* Pods-WhatToEat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatToEat.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatToEat/Pods-WhatToEat.release.xcconfig"; sourceTree = "<group>"; };
+		6D380A8CDEBC9C2EDC1AA54F /* Pods-WhatToEat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatToEat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatToEat/Pods-WhatToEat.debug.xcconfig"; sourceTree = "<group>"; };
+		D8E8C1B6DA96BBC59973501F /* libPods-WhatToEat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatToEat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC0ADA4D1C4CC1B700D43A44 /* NSURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+OAuth.h"; sourceTree = "<group>"; };
+		DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+OAuth.m"; sourceTree = "<group>"; };
+		DC0ADA4F1C4CC1B700D43A44 /* YPAPISample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPAPISample.h; sourceTree = "<group>"; };
+		DC0ADA501C4CC1B700D43A44 /* YPAPISample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPAPISample.m; sourceTree = "<group>"; };
 		DC77D34B1C4C4C2400D2E06B /* WhatToEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC77D34F1C4C4C2400D2E06B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC77D3511C4C4C2400D2E06B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45706C2527E9C9D80796A39F /* libPods-WhatToEat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +97,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0699856FC9F1BB3D4449DE0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8E8C1B6DA96BBC59973501F /* libPods-WhatToEat.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B953569D6A41E617001271A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6D380A8CDEBC9C2EDC1AA54F /* Pods-WhatToEat.debug.xcconfig */,
+				36B44C89135726DF6C167980 /* Pods-WhatToEat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DC77D3421C4C4C2400D2E06B = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +121,8 @@
 				DC77D36A1C4C4C2400D2E06B /* WhatToEatTests */,
 				DC77D3751C4C4C2400D2E06B /* WhatToEatUITests */,
 				DC77D34C1C4C4C2400D2E06B /* Products */,
+				B953569D6A41E617001271A6 /* Pods */,
+				0699856FC9F1BB3D4449DE0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +137,10 @@
 		DC77D34D1C4C4C2400D2E06B /* WhatToEat */ = {
 			isa = PBXGroup;
 			children = (
+				DC0ADA4D1C4CC1B700D43A44 /* NSURLRequest+OAuth.h */,
+				DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */,
+				DC0ADA4F1C4CC1B700D43A44 /* YPAPISample.h */,
+				DC0ADA501C4CC1B700D43A44 /* YPAPISample.m */,
 				DCE79F7E1C4C739200C46E1F /* DraggableView.h */,
 				DCE79F7F1C4C739200C46E1F /* DraggableView.m */,
 				DCE79F801C4C739200C46E1F /* OverlayView.h */,
@@ -160,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC77D37B1C4C4C2400D2E06B /* Build configuration list for PBXNativeTarget "WhatToEat" */;
 			buildPhases = (
+				A65EC2AA5BC10D2C65E587FE /* Check Pods Manifest.lock */,
 				DC77D3471C4C4C2400D2E06B /* Sources */,
 				DC77D3481C4C4C2400D2E06B /* Frameworks */,
 				DC77D3491C4C4C2400D2E06B /* Resources */,
+				ADA1B7E2D7E7A047D2DD3641 /* Embed Pods Frameworks */,
+				5F7918418DD9FB3075213481 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,11 +312,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5F7918418DD9FB3075213481 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatToEat/Pods-WhatToEat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A65EC2AA5BC10D2C65E587FE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ADA1B7E2D7E7A047D2DD3641 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatToEat/Pods-WhatToEat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DC77D3471C4C4C2400D2E06B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC0ADA511C4CC1B700D43A44 /* NSURLRequest+OAuth.m in Sources */,
 				DCE79F821C4C739200C46E1F /* DraggableView.m in Sources */,
 				DC77D3591C4C4C2400D2E06B /* CollectionViewController.m in Sources */,
 				DCE79F831C4C739200C46E1F /* OverlayView.m in Sources */,
@@ -287,6 +373,7 @@
 				DC77D3561C4C4C2400D2E06B /* SwipeViewController.m in Sources */,
 				DC77D3501C4C4C2400D2E06B /* main.m in Sources */,
 				DCE79F7D1C4C732700C46E1F /* DraggableViewBackground.m in Sources */,
+				DC0ADA521C4CC1B700D43A44 /* YPAPISample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +491,7 @@
 		};
 		DC77D37C1C4C4C2400D2E06B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D380A8CDEBC9C2EDC1AA54F /* Pods-WhatToEat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WhatToEat/Info.plist;
@@ -415,6 +503,7 @@
 		};
 		DC77D37D1C4C4C2400D2E06B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36B44C89135726DF6C167980 /* Pods-WhatToEat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WhatToEat/Info.plist;
