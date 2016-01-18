@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  SwipeViewController.h
 //  WhatToEat
 //
 //  Created by Yvonne Luo on 1/17/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SwipeViewController : UIViewController
 
 
 @end

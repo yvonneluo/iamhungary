@@ -10,12 +10,12 @@
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/DraggableViewBackground.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/DraggableView.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/FirstViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/SwipeViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/Images.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/DraggableView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/SecondViewController.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/FirstViewController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/SecondViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/CollectionViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/SwipeViewController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/CollectionViewController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/OverlayView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/OverlayView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/AppDelegate.m" isTestSource="false" />
