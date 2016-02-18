@@ -52,5 +52,5 @@
 
 -(void)leftClickAction;
 -(void)rightClickAction;
-
+-(instancetype)initWithFrame:(CGRect)frame withBusiness:(id)business;
 @end

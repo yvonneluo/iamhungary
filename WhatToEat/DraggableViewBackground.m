@@ -5,7 +5,7 @@
 //  Created by Richard Kim on 8/23/14.
 //  Copyright (c) 2014 Richard Kim. All rights reserved.
 //
-
+#import "Business.h"
 #import "DraggableViewBackground.h"
 
 @implementation DraggableViewBackground{
@@ -26,22 +26,23 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
 @synthesize exampleCardLabels; //%%% all the labels I'm using as example data at the moment
 @synthesize allCards;//%%% all the cards
 
-- (id)initWithFrame:(CGRect)frame responseDictionary:(NSDictionary *)businesses
+- (id)initWithFrame:(CGRect)frame responseDictionary:(NSArray *)businesses
 {
     self = [super initWithFrame:frame];
     if (self) {
         [super layoutSubviews];
         [self setupView];
         NSMutableArray *businessNames = [[NSMutableArray alloc] init];
+        /*
         for (id business in businesses) {
             [businessNames addObject:[business objectForKey:@"name"]];
-        }
+        }                                                        */
         exampleCardLabels = [[NSArray alloc] initWithArray:businessNames];
         //businessNames;//[[NSArray alloc]initWithObjects:@"first",@"second",@"third",@"fourth",@"last", nil]; //%%% placeholder for card-specific information
         loadedCards = [[NSMutableArray alloc] init];
         allCards = [[NSMutableArray alloc] init];
         cardsLoadedIndex = 0;
-        [self loadCards];
+        [self loadCardswithBusiness:businesses];
     }
     return self;
 }
@@ -71,24 +72,28 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
 //%%% creates a card and returns it.  This should be customized to fit your needs.
 // use "index" to indicate where the information should be pulled.  If this doesn't apply to you, feel free
 // to get rid of it (eg: if you are building cards from data from the internet)
--(DraggableView *)createDraggableViewWithDataAtIndex:(NSInteger)index
+-(DraggableView *)createDraggableViewWithDataAtIndex:(NSInteger)index withBusiness:(Business *)business
 {
-    DraggableView *draggableView = [[DraggableView alloc]initWithFrame:CGRectMake((self.frame.size.width - CARD_WIDTH)/2, (self.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)];
-    draggableView.information.text = [exampleCardLabels objectAtIndex:index]; //%%% placeholder for card-specific information
+    DraggableView *draggableView = [[DraggableView alloc]initWithFrame:
+            CGRectMake((self.frame.size.width - CARD_WIDTH)/2,
+            (self.frame.size.height - CARD_HEIGHT)/2,
+                    CARD_WIDTH,
+                    CARD_HEIGHT) withBusiness:business];
+    draggableView.information.text = @"";//[exampleCardLabels objectAtIndex:index]; //%%% placeholder for card-specific information
     draggableView.delegate = self;
     return draggableView;
 }
 
 //%%% loads all the cards and puts the first x in the "loaded cards" array
--(void)loadCards
+-(void)loadCardswithBusiness:(NSArray *)businesses
 {
-    if([exampleCardLabels count] > 0) {
-        NSInteger numLoadedCardsCap =(([exampleCardLabels count] > MAX_BUFFER_SIZE)?MAX_BUFFER_SIZE:[exampleCardLabels count]);
+    if([businesses count] > 0) {
+        NSInteger numLoadedCardsCap =(([businesses count] > MAX_BUFFER_SIZE)?MAX_BUFFER_SIZE:[businesses count]);
         //%%% if the buffer size is greater than the data size, there will be an array error, so this makes sure that doesn't happen
-        
+        //NSArray * business_arrs = businesses.allValues;
         //%%% loops through the exampleCardsLabels array to create a card for each label.  This should be customized by removing "exampleCardLabels" with your own array of data
-        for (int i = 0; i<[exampleCardLabels count]; i++) {
-            DraggableView* newCard = [self createDraggableViewWithDataAtIndex:i];
+        for (int i = 0; i<[businesses count]; i++) {
+            DraggableView* newCard = [self createDraggableViewWithDataAtIndex:i withBusiness:businesses[i]];
             [allCards addObject:newCard];
             
             if (i<numLoadedCardsCap) {
