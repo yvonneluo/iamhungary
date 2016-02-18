@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45706C2527E9C9D80796A39F /* libPods-WhatToEat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E8C1B6DA96BBC59973501F /* libPods-WhatToEat.a */; };
+		D52D578A270CA9DEB5686504 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = D52D51EB26EDF79FE0839B63 /* Business.m */; };
 		DC0ADA511C4CC1B700D43A44 /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */; };
 		DC0ADA521C4CC1B700D43A44 /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0ADA501C4CC1B700D43A44 /* YPAPISample.m */; };
 		DC77D3501C4C4C2400D2E06B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D34F1C4C4C2400D2E06B /* main.m */; };
@@ -43,6 +44,8 @@
 /* Begin PBXFileReference section */
 		36B44C89135726DF6C167980 /* Pods-WhatToEat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatToEat.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatToEat/Pods-WhatToEat.release.xcconfig"; sourceTree = "<group>"; };
 		6D380A8CDEBC9C2EDC1AA54F /* Pods-WhatToEat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatToEat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatToEat/Pods-WhatToEat.debug.xcconfig"; sourceTree = "<group>"; };
+		D52D510628CD809890C5F2CE /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
+		D52D51EB26EDF79FE0839B63 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
 		D8E8C1B6DA96BBC59973501F /* libPods-WhatToEat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatToEat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0ADA4D1C4CC1B700D43A44 /* NSURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+OAuth.h"; sourceTree = "<group>"; };
 		DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+OAuth.m"; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 				DCE79F791C4C6ADF00C46E1F /* Images.xcassets */,
 				DCE79F7B1C4C732700C46E1F /* DraggableViewBackground.h */,
 				DCE79F7C1C4C732700C46E1F /* DraggableViewBackground.m */,
+				D52D51EB26EDF79FE0839B63 /* Business.m */,
+				D52D510628CD809890C5F2CE /* Business.h */,
 			);
 			path = WhatToEat;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				DC77D3501C4C4C2400D2E06B /* main.m in Sources */,
 				DCE79F7D1C4C732700C46E1F /* DraggableViewBackground.m in Sources */,
 				DC0ADA521C4CC1B700D43A44 /* YPAPISample.m in Sources */,
+				D52D578A270CA9DEB5686504 /* Business.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

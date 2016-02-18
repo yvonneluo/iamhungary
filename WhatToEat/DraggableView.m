@@ -16,7 +16,10 @@
 
 
 #import "DraggableView.h"
+@interface DraggableView ()
+@property(nonatomic, strong) UIImageView *imageView;
 
+@end
 @implementation DraggableView {
     CGFloat xFromCenter;
     CGFloat yFromCenter;
@@ -35,27 +38,54 @@
     if (self) {
         [self setupView];
         
-#warning placeholder stuff, replace with card-specific information {
+
+        #warning placeholder stuff, replace with card-specific information {
         information = [[UILabel alloc]initWithFrame:CGRectMake(0, 50, self.frame.size.width, 100)];
         information.text = @"no info given";
         [information setTextAlignment:NSTextAlignmentCenter];
         information.textColor = [UIColor blackColor];
-        
-        self.backgroundColor = [UIColor whiteColor];
-#warning placeholder stuff, replace with card-specific information }
-        
-        
-        
         panGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(beingDragged:)];
-        
         [self addGestureRecognizer:panGestureRecognizer];
         [self addSubview:information];
-        
+
         overlayView = [[OverlayView alloc]initWithFrame:CGRectMake(self.frame.size.width/2-100, 0, 100, 100)];
         overlayView.alpha = 0;
         [self addSubview:overlayView];
+
+        CGRect imageFrame = self.imageView.frame;
+        imageFrame.size.width = 350;
+        imageFrame.size.height = 350;
+        self.imageView.frame = imageFrame;
+        [self addSubview:self.imageView];
+
+        CGRect selfFrame = self.frame;
+        selfFrame.origin.x = 12.5;
+        self.frame = selfFrame;
+
     }
     return self;
+}
+
+-(UIImageView *)imageView {
+    if(!_imageView) {
+        _imageView = [[UIImageView alloc] init];
+        NSURL *imageURL = [NSURL URLWithString:@"http://s3-media4.fl.yelpcdn.com/bphoto/uweSiOf0XBB4BPk_ibHVyg/o.jpg"];
+
+        NSError* error = nil;
+        NSData* imageData = [NSData dataWithContentsOfURL:imageURL options:NSDataReadingUncached error:&error];
+        if (error) {
+            NSLog(@"%@", [error localizedDescription]);
+
+        } else {
+            NSLog(@"Data has loaded successfully.");
+        }
+
+
+        //NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        UIImage * image = [UIImage imageWithData:imageData];
+        _imageView.image = image;
+    }
+    return _imageView;
 }
 
 -(void)setupView

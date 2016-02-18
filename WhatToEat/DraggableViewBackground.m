@@ -26,13 +26,18 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
 @synthesize exampleCardLabels; //%%% all the labels I'm using as example data at the moment
 @synthesize allCards;//%%% all the cards
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame responseDictionary:(NSDictionary *)businesses
 {
     self = [super initWithFrame:frame];
     if (self) {
         [super layoutSubviews];
         [self setupView];
-        exampleCardLabels = [[NSArray alloc]initWithObjects:@"first",@"second",@"third",@"fourth",@"last", nil]; //%%% placeholder for card-specific information
+        NSMutableArray *businessNames = [[NSMutableArray alloc] init];
+        for (id business in businesses) {
+            [businessNames addObject:[business objectForKey:@"name"]];
+        }
+        exampleCardLabels = [[NSArray alloc] initWithArray:businessNames];
+        //businessNames;//[[NSArray alloc]initWithObjects:@"first",@"second",@"third",@"fourth",@"last", nil]; //%%% placeholder for card-specific information
         loadedCards = [[NSMutableArray alloc] init];
         allCards = [[NSMutableArray alloc] init];
         cardsLoadedIndex = 0;
@@ -41,10 +46,10 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
     return self;
 }
 
-//%%% sets up the extra buttons on the screen
+
 -(void)setupView
 {
-#warning customize all of this.  These are just place holders to make it look pretty
+    #warning customize all of this.  These are just place holders to make it look pretty
     self.backgroundColor = [UIColor colorWithRed:.92 green:.93 blue:.95 alpha:1]; //the gray background colors
     menuButton = [[UIButton alloc]initWithFrame:CGRectMake(17, 34, 22, 15)];
     [menuButton setImage:[UIImage imageNamed:@"menuButton"] forState:UIControlStateNormal];
@@ -161,14 +166,4 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
     }];
     [dragView leftClickAction];
 }
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
-
 @end

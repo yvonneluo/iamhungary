@@ -25,6 +25,10 @@
     NSArray *controllers = [NSArray arrayWithObjects:firstViewController, collectionViewController, nil];
     tabBarController.viewControllers=controllers;
 
+    // Change the tab bar background color
+    tabBarController.tabBar.barTintColor =  [UIColor darkGrayColor];
+
+
     NSArray* items = [tabBarController.tabBar items];
 
     UITabBarItem * tabBarItem = [items objectAtIndex:0];
@@ -41,6 +45,7 @@
 
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 

@@ -3,24 +3,26 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/YPAPISample.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/Assets.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/AppDelegate.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/main.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/DraggableViewBackground.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/DraggableView.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/Assets.xcassets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/Images.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/DraggableView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/OverlayView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/SwipeViewController.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/Images.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/OverlayView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/SwipeViewController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/NSURLRequest+OAuth.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/CollectionViewController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/Business.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/CollectionViewController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/YPAPISample.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/NSURLRequest+OAuth.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/AppDelegate.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/WhatToEat/Business.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEat/DraggableViewBackground.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEatUITests/WhatToEatUITests.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WhatToEatUITests/Info.plist" isTestSource="false" />
