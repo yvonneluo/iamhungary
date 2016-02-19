@@ -23,7 +23,7 @@ static UIEdgeInsets SMInboxMessageViewInsets = (UIEdgeInsets){10, 10, 10, 10};
 {
     if (self = [super init]) {
         _categoriesName = [[NSMutableArray alloc] init];
-        [_categoriesName addObject:@"vegetarian"];
+        [_categoriesName addObject:@"brunch"];
         [_categoriesName addObject:@"chinese"];
         [_categoriesName addObject:@"indian"];
         [_categoriesName addObject:@"pizza"];

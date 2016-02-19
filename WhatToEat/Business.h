@@ -9,7 +9,10 @@
 @interface Business : NSObject
 @property(nonatomic, strong) NSString* name;
 @property(nonatomic, strong) NSString* imageUrl;
+@property(nonatomic, strong) NSString* ratingImageUrl;
+@property (nonatomic, strong) NSMutableArray* neighborhoods;
+@property (nonatomic, assign) NSNumber* reviewCounts;
+@property (nonatomic, strong) NSMutableArray* categories;
 
--(instancetype)initWithName:(NSString *)name imageUrl:(NSString *)imageUrl;
 -(instancetype)initWithBizJson:(id)bizBlob;
 @end

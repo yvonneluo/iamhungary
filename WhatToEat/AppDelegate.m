@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "SwipeViewController.h"
 #import "CollectionViewController.h"
-
+#import "FavoriteViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -24,10 +24,10 @@
     SwipeViewController * firstViewController = [[SwipeViewController alloc]init];
     CollectionViewController *collectionViewController = [[CollectionViewController alloc]init];
 
-    CollectionViewController *collectionViewController2 = [[CollectionViewController alloc]init];
+    FavoriteViewController *favoriteViewController = [[FavoriteViewController alloc]init];
     //NSArray *controllers = [NSArray arrayWithObjects:firstViewController, collectionViewController, nil];
 
-    NSArray *controllers = [NSArray arrayWithObjects:firstViewController, collectionViewController, collectionViewController2, nil];
+    NSArray *controllers = [NSArray arrayWithObjects:firstViewController, collectionViewController, favoriteViewController, nil];
     tabBarController.viewControllers=controllers;
 
     // Change the tab bar background color
