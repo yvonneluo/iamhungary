@@ -11,6 +11,7 @@
 		D52D578A270CA9DEB5686504 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = D52D51EB26EDF79FE0839B63 /* Business.m */; };
 		DC0ADA511C4CC1B700D43A44 /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */; };
 		DC0ADA521C4CC1B700D43A44 /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0ADA501C4CC1B700D43A44 /* YPAPISample.m */; };
+		DC6BF5541C76C3CA00ED42A0 /* CategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6BF5531C76C3CA00ED42A0 /* CategoryViewCell.m */; };
 		DC77D3501C4C4C2400D2E06B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D34F1C4C4C2400D2E06B /* main.m */; };
 		DC77D3531C4C4C2400D2E06B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3521C4C4C2400D2E06B /* AppDelegate.m */; };
 		DC77D3561C4C4C2400D2E06B /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3551C4C4C2400D2E06B /* SwipeViewController.m */; };
@@ -51,6 +52,8 @@
 		DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+OAuth.m"; sourceTree = "<group>"; };
 		DC0ADA4F1C4CC1B700D43A44 /* YPAPISample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPAPISample.h; sourceTree = "<group>"; };
 		DC0ADA501C4CC1B700D43A44 /* YPAPISample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPAPISample.m; sourceTree = "<group>"; };
+		DC6BF5521C76C3CA00ED42A0 /* CategoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewCell.h; sourceTree = "<group>"; };
+		DC6BF5531C76C3CA00ED42A0 /* CategoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewCell.m; sourceTree = "<group>"; };
 		DC77D34B1C4C4C2400D2E06B /* WhatToEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC77D34F1C4C4C2400D2E06B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC77D3511C4C4C2400D2E06B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				DCE79F7C1C4C732700C46E1F /* DraggableViewBackground.m */,
 				D52D51EB26EDF79FE0839B63 /* Business.m */,
 				D52D510628CD809890C5F2CE /* Business.h */,
+				DC6BF5521C76C3CA00ED42A0 /* CategoryViewCell.h */,
+				DC6BF5531C76C3CA00ED42A0 /* CategoryViewCell.m */,
 			);
 			path = WhatToEat;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				TargetAttributes = {
 					DC77D34A1C4C4C2400D2E06B = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5JKA724WPG;
 					};
 					DC77D3661C4C4C2400D2E06B = {
 						CreatedOnToolsVersion = 7.2;
@@ -373,6 +379,7 @@
 				DC0ADA511C4CC1B700D43A44 /* NSURLRequest+OAuth.m in Sources */,
 				DCE79F821C4C739200C46E1F /* DraggableView.m in Sources */,
 				DC77D3591C4C4C2400D2E06B /* CollectionViewController.m in Sources */,
+				DC6BF5541C76C3CA00ED42A0 /* CategoryViewCell.m in Sources */,
 				DCE79F831C4C739200C46E1F /* OverlayView.m in Sources */,
 				DC77D3531C4C4C2400D2E06B /* AppDelegate.m in Sources */,
 				DC77D3561C4C4C2400D2E06B /* SwipeViewController.m in Sources */,
@@ -500,10 +507,13 @@
 			baseConfigurationReference = 6D380A8CDEBC9C2EDC1AA54F /* Pods-WhatToEat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhatToEat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yvonne.WhatToEat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -512,10 +522,13 @@
 			baseConfigurationReference = 36B44C89135726DF6C167980 /* Pods-WhatToEat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhatToEat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yvonne.WhatToEat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -5,9 +5,14 @@
 //  Created by Richard Kim on 8/23/14.
 //  Copyright (c) 2014 Richard Kim. All rights reserved.
 //
-
+#import "Business.h"
 #import "DraggableViewBackground.h"
+@interface DraggableViewBackground ()
+@property (nonatomic, strong) UILabel *headerLabel;
+@property(nonatomic, strong) UIButton * likeButton;
+@property(nonatomic, strong) UIButton * dislikeButton;
 
+@end
 @implementation DraggableViewBackground{
     NSInteger cardsLoadedIndex; //%%% the index of the card you have loaded into the loadedCards array last
     NSMutableArray *loadedCards; //%%% the array of card loaded (change max_buffer_size to increase or decrease the number of cards this holds)
@@ -21,27 +26,28 @@
 //avoid performance and memory costs
 static const int MAX_BUFFER_SIZE = 2; //%%% max number of cards loaded at any given time, must be greater than 1
 static const float CARD_HEIGHT = 386; //%%% height of the draggable card
-static const float CARD_WIDTH = 290; //%%% width of the draggable card
+static const float CARD_WIDTH = 375; //%%% width of the draggable card
 
 @synthesize exampleCardLabels; //%%% all the labels I'm using as example data at the moment
 @synthesize allCards;//%%% all the cards
 
-- (id)initWithFrame:(CGRect)frame responseDictionary:(NSDictionary *)businesses
+- (id)initWithFrame:(CGRect)frame responseDictionary:(NSArray *)businesses
 {
     self = [super initWithFrame:frame];
     if (self) {
         [super layoutSubviews];
         [self setupView];
         NSMutableArray *businessNames = [[NSMutableArray alloc] init];
+        /*
         for (id business in businesses) {
             [businessNames addObject:[business objectForKey:@"name"]];
-        }
+        }                                                        */
         exampleCardLabels = [[NSArray alloc] initWithArray:businessNames];
         //businessNames;//[[NSArray alloc]initWithObjects:@"first",@"second",@"third",@"fourth",@"last", nil]; //%%% placeholder for card-specific information
         loadedCards = [[NSMutableArray alloc] init];
         allCards = [[NSMutableArray alloc] init];
         cardsLoadedIndex = 0;
-        [self loadCards];
+        [self loadCardswithBusiness:businesses];
     }
     return self;
 }
@@ -49,46 +55,44 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
 
 -(void)setupView
 {
-    #warning customize all of this.  These are just place holders to make it look pretty
     self.backgroundColor = [UIColor colorWithRed:.92 green:.93 blue:.95 alpha:1]; //the gray background colors
-    menuButton = [[UIButton alloc]initWithFrame:CGRectMake(17, 34, 22, 15)];
-    [menuButton setImage:[UIImage imageNamed:@"menuButton"] forState:UIControlStateNormal];
-    messageButton = [[UIButton alloc]initWithFrame:CGRectMake(284, 34, 18, 18)];
-    [messageButton setImage:[UIImage imageNamed:@"messageButton"] forState:UIControlStateNormal];
-    xButton = [[UIButton alloc]initWithFrame:CGRectMake(60, 485, 59, 59)];
-    [xButton setImage:[UIImage imageNamed:@"xButton"] forState:UIControlStateNormal];
+    CGFloat xButtonX = 60.0/350 * [[UIScreen mainScreen] bounds].size.width;
+    CGFloat checkButtonX = 250.0/350 * [[UIScreen mainScreen] bounds].size.width;
+
+    xButton = [[UIButton alloc]initWithFrame:CGRectMake(xButtonX, 525, 59, 59)];
+    [xButton setImage:[UIImage imageNamed:@"noclear"] forState:UIControlStateNormal];
     [xButton addTarget:self action:@selector(swipeLeft) forControlEvents:UIControlEventTouchUpInside];
-    checkButton = [[UIButton alloc]initWithFrame:CGRectMake(200, 485, 59, 59)];
-    [checkButton setImage:[UIImage imageNamed:@"checkButton"] forState:UIControlStateNormal];
+    checkButton = [[UIButton alloc]initWithFrame:CGRectMake(checkButtonX, 525, 59, 59)];
+    [checkButton setImage:[UIImage imageNamed:@"yesclear"] forState:UIControlStateNormal];
     [checkButton addTarget:self action:@selector(swipeRight) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:menuButton];
-    [self addSubview:messageButton];
     [self addSubview:xButton];
     [self addSubview:checkButton];
 }
 
 #warning include own card customization here!
-//%%% creates a card and returns it.  This should be customized to fit your needs.
-// use "index" to indicate where the information should be pulled.  If this doesn't apply to you, feel free
-// to get rid of it (eg: if you are building cards from data from the internet)
--(DraggableView *)createDraggableViewWithDataAtIndex:(NSInteger)index
+-(DraggableView *)createDraggableViewWithDataAtIndex:(NSInteger)index withBusiness:(Business *)business
 {
-    DraggableView *draggableView = [[DraggableView alloc]initWithFrame:CGRectMake((self.frame.size.width - CARD_WIDTH)/2, (self.frame.size.height - CARD_HEIGHT)/2, CARD_WIDTH, CARD_HEIGHT)];
-    draggableView.information.text = [exampleCardLabels objectAtIndex:index]; //%%% placeholder for card-specific information
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    DraggableView *draggableView = [[DraggableView alloc]initWithFrame:
+            CGRectMake(0,
+                    (self.frame.size.height - width)/2,
+                    width,
+                    CARD_HEIGHT) withBusiness:business];
+    draggableView.information.text = @"";
     draggableView.delegate = self;
     return draggableView;
 }
 
 //%%% loads all the cards and puts the first x in the "loaded cards" array
--(void)loadCards
+-(void)loadCardswithBusiness:(NSArray *)businesses
 {
-    if([exampleCardLabels count] > 0) {
-        NSInteger numLoadedCardsCap =(([exampleCardLabels count] > MAX_BUFFER_SIZE)?MAX_BUFFER_SIZE:[exampleCardLabels count]);
+    if([businesses count] > 0) {
+        NSInteger numLoadedCardsCap =(([businesses count] > MAX_BUFFER_SIZE)?MAX_BUFFER_SIZE:[businesses count]);
         //%%% if the buffer size is greater than the data size, there will be an array error, so this makes sure that doesn't happen
-        
+        //NSArray * business_arrs = businesses.allValues;
         //%%% loops through the exampleCardsLabels array to create a card for each label.  This should be customized by removing "exampleCardLabels" with your own array of data
-        for (int i = 0; i<[exampleCardLabels count]; i++) {
-            DraggableView* newCard = [self createDraggableViewWithDataAtIndex:i];
+        for (int i = 0; i<[businesses count]; i++) {
+            DraggableView* newCard = [self createDraggableViewWithDataAtIndex:i withBusiness:businesses[i]];
             [allCards addObject:newCard];
             
             if (i<numLoadedCardsCap) {
@@ -107,7 +111,34 @@ static const float CARD_WIDTH = 290; //%%% width of the draggable card
             }
             cardsLoadedIndex++; //%%% we loaded a card into loaded cards, so we have to increment
         }
+        [self addSubview:self.headerLabel];
     }
+}
+
+-(UILabel *)headerLabel {
+    if(!_headerLabel) {
+        _headerLabel = [[UILabel alloc] init];
+        _headerLabel.text = @"yelpscover";
+        _headerLabel.textColor = [UIColor whiteColor];
+        _headerLabel.backgroundColor = [UIColor colorWithRed:231.0/255 green:51.0/255 blue:25.0/255 alpha:1];
+        _headerLabel.font = [UIFont fontWithName:@"Baskerville-BoldItalic" size:35];
+        _headerLabel.textAlignment = NSTextAlignmentCenter;
+
+        CGRect headerFrame = _headerLabel.frame;
+        headerFrame.size.width = self.frame.size.width;
+        headerFrame.size.height = 80;
+        _headerLabel.frame = headerFrame;
+    }
+    return _headerLabel;
+}
+
+
+-(UIButton *)likeButton {
+    if(!_likeButton) {
+        _likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_likeButton setImage:[UIImage imageNamed:@"yesclear"] forState:UIControlStateNormal];
+    }
+    return _likeButton;
 }
 
 #warning include own action here!

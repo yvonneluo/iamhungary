@@ -65,7 +65,7 @@
     }];
 
     dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
-    DraggableViewBackground *draggableBackground = [[DraggableViewBackground alloc]initWithFrame:self.view.frame responseDictionary:_businesses];
+    DraggableViewBackground *draggableBackground = [[DraggableViewBackground alloc]initWithFrame:self.view.frame responseDictionary:_biz_arrs];
     [self.view addSubview:draggableBackground];
     [self.view bringSubviewToFront:draggableBackground];
 }

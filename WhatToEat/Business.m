@@ -19,8 +19,8 @@
 
 -(instancetype)initWithBizJson:(id)bizBlob {
     if(self =[super init]) {
-        _name = bizBlob[@'name'];
-        _imageUrl = bizBlob[@'imageUrl'];
+        _name = [bizBlob objectForKey:@"name"];
+        _imageUrl = [bizBlob objectForKey:@"image_url"];
     }
     return self;
 }

@@ -20,28 +20,39 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UITabBarController * tabBarController = [[UITabBarController alloc] init];
+
     SwipeViewController * firstViewController = [[SwipeViewController alloc]init];
     CollectionViewController *collectionViewController = [[CollectionViewController alloc]init];
-    NSArray *controllers = [NSArray arrayWithObjects:firstViewController, collectionViewController, nil];
+
+    CollectionViewController *collectionViewController2 = [[CollectionViewController alloc]init];
+    //NSArray *controllers = [NSArray arrayWithObjects:firstViewController, collectionViewController, nil];
+
+    NSArray *controllers = [NSArray arrayWithObjects:firstViewController, collectionViewController, collectionViewController2, nil];
     tabBarController.viewControllers=controllers;
 
     // Change the tab bar background color
-    tabBarController.tabBar.barTintColor =  [UIColor darkGrayColor];
+    tabBarController.tabBar.barTintColor =  [UIColor colorWithRed:41/255.0 green:41/255.0 blue:41/255.0 alpha:1];//[UIColor darkGrayColor];
 
-
+    [[UITabBar appearance] setSelectedImageTintColor: [UIColor whiteColor]];
     NSArray* items = [tabBarController.tabBar items];
 
     UITabBarItem * tabBarItem = [items objectAtIndex:0];
-    [tabBarItem setTitle:@"Home"];
-    UIImage *iconImage = [UIImage imageNamed:@"apple"];
+    [tabBarItem setTitle:@"Search"];
+    UIImage *iconImage = [UIImage imageNamed:@"profileclear"];
 
 
-    UITabBarItem * tabBarItem2 = [items objectAtIndex:1];
-    [tabBarItem2 setTitle:@"Collection"];
-    UIImage *collectionViewIcon = [UIImage imageNamed:@"hamburger"];
+    UITabBarItem * tabBarItem1 = [items objectAtIndex:1];
+    [tabBarItem1 setTitle:@"Home"];
+    UIImage *collectionViewIcon = [UIImage imageNamed:@"homeclear"];
+
+    UITabBarItem * tabBarItem2 = [items objectAtIndex:2];
+    [tabBarItem2 setTitle:@"Favorite"];
+    UIImage *collectionViewIcon2 = [UIImage imageNamed:@"favoriteclear"];
 
     [tabBarItem setImage:iconImage];
-    [tabBarItem2 setImage:collectionViewIcon];
+    [tabBarItem1 setImage:collectionViewIcon];
+    [tabBarItem2 setImage:collectionViewIcon2];
+
 
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];

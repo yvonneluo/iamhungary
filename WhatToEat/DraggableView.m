@@ -16,8 +16,12 @@
 
 
 #import "DraggableView.h"
+#import "Business.h"
 @interface DraggableView ()
+
 @property(nonatomic, strong) UIImageView *imageView;
+@property(nonatomic, strong) Business * business;
+
 
 @end
 @implementation DraggableView {
@@ -32,19 +36,21 @@
 @synthesize information;
 @synthesize overlayView;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame withBusiness:(nonnull Business *)business
 {
     self = [super initWithFrame:frame];
     if (self) {
+        NSParameterAssert(business);
+        _business = business;
         [self setupView];
-        
+        NSParameterAssert(business);
 
-        #warning placeholder stuff, replace with card-specific information {
         information = [[UILabel alloc]initWithFrame:CGRectMake(0, 50, self.frame.size.width, 100)];
         information.text = @"no info given";
         [information setTextAlignment:NSTextAlignmentCenter];
         information.textColor = [UIColor blackColor];
         panGestureRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(beingDragged:)];
+
         [self addGestureRecognizer:panGestureRecognizer];
         [self addSubview:information];
 
@@ -52,16 +58,14 @@
         overlayView.alpha = 0;
         [self addSubview:overlayView];
 
-        CGRect imageFrame = self.imageView.frame;
-        imageFrame.size.width = 350;
-        imageFrame.size.height = 350;
-        self.imageView.frame = imageFrame;
+
         [self addSubview:self.imageView];
 
-        CGRect selfFrame = self.frame;
-        selfFrame.origin.x = 12.5;
-        self.frame = selfFrame;
+        // TODO: yvonne a hack to make the image set on the side.
 
+        /*CGRect selfFrame = self.frame;
+        selfFrame.origin.x = 12.5;
+        self.frame = selfFrame;*/
     }
     return self;
 }
@@ -69,7 +73,13 @@
 -(UIImageView *)imageView {
     if(!_imageView) {
         _imageView = [[UIImageView alloc] init];
-        NSURL *imageURL = [NSURL URLWithString:@"http://s3-media4.fl.yelpcdn.com/bphoto/uweSiOf0XBB4BPk_ibHVyg/o.jpg"];
+        NSString *imageUrl = _business.imageUrl;
+        NSString * newUrl = [imageUrl substringWithRange:NSMakeRange(0, [imageUrl length]-6)];
+        NSString * newImageUrl = [newUrl stringByAppendingString:@"o.jpg"];
+
+        NSParameterAssert(newImageUrl);
+        NSURL *imageURL = [NSURL URLWithString:newImageUrl];
+        //NSURL *imageURL = [NSURL URLWithString:@"http://s3-media4.fl.yelpcdn.com/bphoto/uweSiOf0XBB4BPk_ibHVyg/o.jpg"];
 
         NSError* error = nil;
         NSData* imageData = [NSData dataWithContentsOfURL:imageURL options:NSDataReadingUncached error:&error];
@@ -80,10 +90,15 @@
             NSLog(@"Data has loaded successfully.");
         }
 
-
-        //NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
         UIImage * image = [UIImage imageWithData:imageData];
         _imageView.image = image;
+
+        CGRect imageFrame = self.imageView.frame;
+        imageFrame.size.width = 350;
+        imageFrame.size.height = 350;
+        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        imageFrame.origin.x = (width - imageFrame.size.width) /2;
+        self.imageView.frame = imageFrame;
     }
     return _imageView;
 }
@@ -95,15 +110,6 @@
     self.layer.shadowOpacity = 0.2;
     self.layer.shadowOffset = CGSizeMake(1, 1);
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 //%%% called when you move your finger across the screen.
 // called many times a second
