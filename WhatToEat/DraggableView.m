@@ -18,8 +18,11 @@
 #import "DraggableView.h"
 #import "Business.h"
 @interface DraggableView ()
+
 @property(nonatomic, strong) UIImageView *imageView;
 @property(nonatomic, strong) Business * business;
+
+
 @end
 @implementation DraggableView {
     CGFloat xFromCenter;
@@ -55,16 +58,14 @@
         overlayView.alpha = 0;
         [self addSubview:overlayView];
 
-        CGRect imageFrame = self.imageView.frame;
-        imageFrame.size.width = 350;
-        imageFrame.size.height = 350;
-        self.imageView.frame = imageFrame;
+
         [self addSubview:self.imageView];
 
-        // TODO: yvonne a hack to make the image set on the side. it shouldn't be here;
-        CGRect selfFrame = self.frame;
+        // TODO: yvonne a hack to make the image set on the side.
+
+        /*CGRect selfFrame = self.frame;
         selfFrame.origin.x = 12.5;
-        self.frame = selfFrame;
+        self.frame = selfFrame;*/
     }
     return self;
 }
@@ -91,6 +92,13 @@
 
         UIImage * image = [UIImage imageWithData:imageData];
         _imageView.image = image;
+
+        CGRect imageFrame = self.imageView.frame;
+        imageFrame.size.width = 350;
+        imageFrame.size.height = 350;
+        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        imageFrame.origin.x = (width - imageFrame.size.width) /2;
+        self.imageView.frame = imageFrame;
     }
     return _imageView;
 }
@@ -102,15 +110,6 @@
     self.layer.shadowOpacity = 0.2;
     self.layer.shadowOffset = CGSizeMake(1, 1);
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 //%%% called when you move your finger across the screen.
 // called many times a second
