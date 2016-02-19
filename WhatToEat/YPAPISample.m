@@ -11,7 +11,7 @@
 static NSString * const kAPIHost           = @"api.yelp.com";
 static NSString * const kSearchPath        = @"/v2/search/";
 static NSString * const kBusinessPath      = @"/v2/business/";
-static NSString * const kSearchLimit       = @"10";
+static NSString * const kSearchLimit       = @"15";
 
 @implementation YPAPISample
 
@@ -37,9 +37,9 @@ static NSString * const kSearchLimit       = @"10";
 
     if ([businessArray count] > 0) {
       NSDictionary *firstBusiness = [businessArray firstObject];
-      NSLog(@"First business is %@", firstBusiness);
+      //NSLog(@"First business is %@", firstBusiness);
       NSString *firstBusinessID = firstBusiness[@"id"];
-      NSLog(@"%lu businesses found, querying business info for the top result: %@", (unsigned long)[businessArray count], firstBusinessID);
+      //NSLog(@"%lu businesses found, querying business info for the top result: %@", (unsigned long)[businessArray count], firstBusinessID);
       completionHandler(businessArray, error);
     //[self queryBusinessInfoForBusinessId:firstBusinessID completionHandler:completionHandler];
     } else {

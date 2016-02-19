@@ -11,7 +11,6 @@
 #import "YPAPISample.h"
 #import "Business.h"
 @interface SwipeViewController ()
-@property (nonatomic, strong) NSDictionary *businesses;
 @property (nonatomic, strong) NSArray * biz_arrs;
 
 @end
@@ -24,13 +23,12 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSParameterAssert(1==1);
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:)
                                                  name:@"Finished loading business"
                                                object:nil];
 
-    NSString *defaultTerm = @"dinner";
+    NSString *defaultTerm = @"lolo";
     NSString *defaultLocation = @"San Francisco, CA";
 
     //Get the term and location from the command line if there were any, otherwise assign default values.
@@ -48,7 +46,7 @@
         if (error) {
             NSLog(@"An error happened during the request: %@", error);
         } else if (businesses) {
-            NSLog(@"Business array info: \n %@", businesses);
+            //NSLog(@"Business array info: \n %@", businesses);
             NSMutableArray *arrs = [[NSMutableArray alloc] init];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Finished loading business" object:self];
             for (id business in businesses) {
@@ -56,7 +54,6 @@
                 [arrs addObject:biz];
             }
             _biz_arrs = [[NSArray alloc] initWithArray:arrs];
-            _businesses = businesses;
         } else {
             NSLog(@"No business was found");
         }

@@ -9,18 +9,17 @@
 @implementation Business {
 
 }
--(instancetype)initWithName:(NSString *)name imageUrl:(NSString *)imageUrl {
-    if(self =[super init]) {
-        _name = name;
-        _imageUrl = imageUrl;
-    }
-    return self;
-}
 
 -(instancetype)initWithBizJson:(id)bizBlob {
     if(self =[super init]) {
         _name = [bizBlob objectForKey:@"name"];
         _imageUrl = [bizBlob objectForKey:@"image_url"];
+        _ratingImageUrl = bizBlob[@"rating_img_url_large"];
+        _categories = bizBlob[@"categories"];
+        _neighborhoods = bizBlob[@"location"][@"neighborhoods"];
+        _reviewCounts = bizBlob[@"review_count"];
+
+
     }
     return self;
 }

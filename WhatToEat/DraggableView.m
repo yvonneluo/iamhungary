@@ -87,7 +87,7 @@
             NSLog(@"%@", [error localizedDescription]);
 
         } else {
-            NSLog(@"Data has loaded successfully.");
+            //NSLog(@"Data has loaded successfully.");
         }
 
         UIImage * image = [UIImage imageWithData:imageData];
