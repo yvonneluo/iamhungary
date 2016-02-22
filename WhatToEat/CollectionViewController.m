@@ -168,20 +168,20 @@ static UIEdgeInsets SMInboxMessageViewInsets = (UIEdgeInsets){10, 10, 10, 10};
     return YES;
 }
 
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"cell is selected");
     _mySpinner.hidden = NO;
-    [self.view bringSubviewToFront:_mySpinner];
-    [_mySpinner startAnimating];
+    //[self.view bringSubviewToFront:_mySpinner];
+    //[_mySpinner startAnimating];
 
     SwipeViewController *swipeViewController = (SwipeViewController *)[self.tabBarController.viewControllers objectAtIndex:1];
     swipeViewController.searchTerm = _categoriesName[indexPath.row];
     if ([swipeViewController.searchTerm isEqualToString:@"italian"]) {
         swipeViewController.searchTerm = @"lolo";
     }
-    [self performSelector:@selector(selectSearchTerm) withObject:nil afterDelay:0.1];
+    self.tabBarController.selectedIndex = 1;
+    //[self performSelector:@selector(selectSearchTerm) withObject:nil afterDelay:0.1];
 
 }
 

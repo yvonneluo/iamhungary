@@ -11,10 +11,9 @@
 #import "SavedBusiness.h"
 
 @interface DraggableViewBackground ()
-@property (nonatomic, strong) UILabel *headerLabel;
+
 @property(nonatomic, strong) UIButton * likeButton;
 @property(nonatomic, strong) UIButton * dislikeButton;
-@property (nonatomic, strong) UIImageView *headerImage;
 
 @end
 @implementation DraggableViewBackground{
@@ -63,10 +62,10 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
     CGFloat xButtonX = 60.0/350 * [[UIScreen mainScreen] bounds].size.width;
     CGFloat checkButtonX = 250.0/350 * [[UIScreen mainScreen] bounds].size.width;
 
-    xButton = [[UIButton alloc]initWithFrame:CGRectMake(xButtonX, 525, 59, 59)];
+    xButton = [[UIButton alloc]initWithFrame:CGRectMake(xButtonX, self.frame.size.height - 59* 2.5, 59, 59)];
     [xButton setImage:[UIImage imageNamed:@"noclear"] forState:UIControlStateNormal];
     [xButton addTarget:self action:@selector(swipeLeft) forControlEvents:UIControlEventTouchUpInside];
-    checkButton = [[UIButton alloc]initWithFrame:CGRectMake(checkButtonX, 525, 59, 59)];
+    checkButton = [[UIButton alloc]initWithFrame:CGRectMake(checkButtonX, self.frame.size.height - 59* 2.5, 59, 59)];
     [checkButton setImage:[UIImage imageNamed:@"yesclear"] forState:UIControlStateNormal];
     [checkButton addTarget:self action:@selector(swipeRight) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:xButton];
@@ -79,7 +78,7 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     DraggableView *draggableView = [[DraggableView alloc]initWithFrame:
             CGRectMake(0,
-                    (self.frame.size.height - width)/2,
+                    (self.frame.size.height)/10,
                     width,
                     CARD_HEIGHT) withBusiness:business];
     draggableView.information.text = @"";
@@ -115,38 +114,9 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
             }
             cardsLoadedIndex++; //%%% we loaded a card into loaded cards, so we have to increment
         }
-        [self addSubview:self.headerImage];
+        //[self addSubview:self.headerImage];
     }
 }
-
--(UILabel *)headerLabel {
-    if(!_headerLabel) {
-        _headerLabel = [[UILabel alloc] init];
-        _headerLabel.text = @"yelpscover";
-        _headerLabel.textColor = [UIColor whiteColor];
-        _headerLabel.backgroundColor = [UIColor colorWithRed:231.0/255 green:51.0/255 blue:25.0/255 alpha:1];
-        _headerLabel.font = [UIFont fontWithName:@"Baskerville-BoldItalic" size:35];
-        _headerLabel.textAlignment = NSTextAlignmentCenter;
-
-        CGRect headerFrame = _headerLabel.frame;
-        headerFrame.size.width = self.frame.size.width;
-        headerFrame.size.height = 80;
-        _headerLabel.frame = headerFrame;
-    }
-    return _headerLabel;
-}
-
--(UIImageView *) headerImage{
-    if(!_headerImage){
-        _headerImage= [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"header"]];
-        CGRect headerFrame = _headerImage.frame;
-        headerFrame.size.width = self.frame.size.width;
-        headerFrame.size.height = 80;
-        _headerImage.frame = headerFrame;
-    }
-    return _headerImage;
-}
-
 
 -(UIButton *)likeButton {
     if(!_likeButton) {
@@ -180,9 +150,9 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
 {
     //do whatever you want with the card that was swiped
     //    DraggableView *c = (DraggableView *)card;
-    
+    DraggableView * dragView = (DraggableView *)card;
     [loadedCards removeObjectAtIndex:0]; //%%% card was swiped, so it's no longer a "loaded card"
-    
+    [self saveBusinessIntoContext:dragView.business];
     if (cardsLoadedIndex < [allCards count]) { //%%% if we haven't reached the end of all cards, put another into the loaded cards
         [loadedCards addObject:[allCards objectAtIndex:cardsLoadedIndex]];
         cardsLoadedIndex++;//%%% loaded a card, so have to increment count

@@ -28,9 +28,17 @@ extern NSString * const SMCombinedTablePaneViewControllerCellReuseIdentifier;
     [super viewDidLoad];
     [self.tableView registerClass:[FavoriteViewTableViewCell class]
            forCellReuseIdentifier:SMCombinedTablePaneViewControllerCellReuseIdentifier];
+    self.tableView.backgroundColor = [UIColor whiteColor];
 
-    [self getBusinesses];
+    //[self getBusinesses];
     //[self.tableView addSubview:self.headerLabel];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getBusinesses];
+    [self.tableView reloadData];
+    //[self ]
 }
 
 -(void)getBusinesses {
@@ -60,7 +68,7 @@ extern NSString * const SMCombinedTablePaneViewControllerCellReuseIdentifier;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
     self.tableView.scrollEnabled = YES;
-    self.tableView.bounces = YES;
+    self.tableView.bounces = NO;
 }
 
 
