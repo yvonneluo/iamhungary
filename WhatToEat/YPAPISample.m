@@ -44,6 +44,7 @@ static NSString * const kSearchLimit       = @"15";
     //[self queryBusinessInfoForBusinessId:firstBusinessID completionHandler:completionHandler];
     } else {
         completionHandler(nil, error); // No business was found
+        NSLog(@"First business is %@", error);
         }
     }
     else {

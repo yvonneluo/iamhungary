@@ -7,7 +7,7 @@
 //
 
 #import "FavoriteViewTableViewCell.h"
-#import "Business.h"
+#import "SavedBusiness.h"
 NSString * const SMCombinedTablePaneViewControllerCellReuseIdentifier = @"SMCombinedTableViewControllerCellReuseIdentifier";
 CGFloat const xOffset = 150;
 CGFloat const yOffsetForRating = 15;
@@ -55,13 +55,14 @@ CGFloat const yOffsetForCagegories = 90;
     }
 }
 
-- (void)setBusiness:(nonnull Business *)business {
+- (void)setBusiness:(nonnull SavedBusiness *)business {
     NSParameterAssert(business);
     _business = business;
     self.bizName.text = _business.name;
     self.reviewCountLabel.text = [[_business.reviewCounts stringValue] stringByAppendingString:@" reviews"];
     int i = 0;
     self.neightborhoodLabel.text = @"";
+    /*
     for (; i< [_business.neighborhoods count] -1; i++) {
         self.neightborhoodLabel.text = [self.neightborhoodLabel.text stringByAppendingString:_business.neighborhoods[i]];
         self.neightborhoodLabel.text = [self.neightborhoodLabel.text stringByAppendingString:@", "];
@@ -74,7 +75,7 @@ CGFloat const yOffsetForCagegories = 90;
         self.categoriLabel.text = [self.categoriLabel.text stringByAppendingString:_business.categories[i][0]];
         self.categoriLabel.text = [self.categoriLabel.text stringByAppendingString:@", "];
     }
-    self.categoriLabel.text = [self.categoriLabel.text stringByAppendingString:_business.categories[i][0]];
+    self.categoriLabel.text = [self.categoriLabel.text stringByAppendingString:_business.categories[i][0]];*/
 
 }
 

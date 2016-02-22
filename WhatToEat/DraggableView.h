@@ -33,6 +33,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OverlayView.h"
+@class Business;
 
 @protocol DraggableViewDelegate <NSObject>
 
@@ -44,6 +45,7 @@
 @interface DraggableView : UIView
 
 @property (weak) id <DraggableViewDelegate> delegate;
+@property(nonatomic, strong) Business * business;
 
 @property (nonatomic, strong)UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic)CGPoint originalPoint;

@@ -7,10 +7,14 @@
 //
 #import "Business.h"
 #import "DraggableViewBackground.h"
+#import "AppDelegate.h"
+#import "SavedBusiness.h"
+
 @interface DraggableViewBackground ()
 @property (nonatomic, strong) UILabel *headerLabel;
 @property(nonatomic, strong) UIButton * likeButton;
 @property(nonatomic, strong) UIButton * dislikeButton;
+@property (nonatomic, strong) UIImageView *headerImage;
 
 @end
 @implementation DraggableViewBackground{
@@ -111,7 +115,7 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
             }
             cardsLoadedIndex++; //%%% we loaded a card into loaded cards, so we have to increment
         }
-        [self addSubview:self.headerLabel];
+        [self addSubview:self.headerImage];
     }
 }
 
@@ -130,6 +134,17 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
         _headerLabel.frame = headerFrame;
     }
     return _headerLabel;
+}
+
+-(UIImageView *) headerImage{
+    if(!_headerImage){
+        _headerImage= [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"header"]];
+        CGRect headerFrame = _headerImage.frame;
+        headerFrame.size.width = self.frame.size.width;
+        headerFrame.size.height = 80;
+        _headerImage.frame = headerFrame;
+    }
+    return _headerImage;
 }
 
 
@@ -185,6 +200,8 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
         dragView.overlayView.alpha = 1;
     }];
     [dragView rightClickAction];
+    [self saveBusinessIntoContext:dragView.business];
+
 }
 
 //%%% when you hit the left button, this is called and substitutes the swipe
@@ -197,4 +214,25 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
     }];
     [dragView leftClickAction];
 }
-@end
+
+-(void)saveBusinessIntoContext:(Business *)business {
+    AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *moc = ad.managedObjectContext;
+    NSError *error = nil;
+
+
+    SavedBusiness *toSaveBusiness = (SavedBusiness *)[NSEntityDescription insertNewObjectForEntityForName:@"SavedBusiness" inManagedObjectContext:moc];
+    toSaveBusiness.name = business.name;
+
+    toSaveBusiness.imageUrl = business.imageUrl;
+
+    toSaveBusiness.ratingImageUrl = business.ratingImageUrl;
+
+
+   if (![moc save:&error]) {
+       // Something's gone seriously wrong
+       NSLog(@"Error saving new color: %@", [error localizedDescription]);
+   }
+
+}
+ @end

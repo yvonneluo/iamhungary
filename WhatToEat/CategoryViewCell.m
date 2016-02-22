@@ -22,8 +22,24 @@
 
         // Add subviews
         [self.contentView addSubview:self.imageButton];
+        self.contentView.userInteractionEnabled = NO;
     }
     return self;
+}
+
+-(void) setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    [self setNeedsDisplay];
+}
+
+-(void) drawRect:(CGRect)rect {
+    [super drawRect:rect];
+
+    if (self.highlighted) {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetRGBFillColor(context, 1, 0, 0, 1);
+        CGContextFillRect(context, self.bounds);
+    }
 }
 
 -(UIButton *)imageButton {

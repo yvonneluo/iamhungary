@@ -11,6 +11,8 @@
 		D52D578A270CA9DEB5686504 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = D52D51EB26EDF79FE0839B63 /* Business.m */; };
 		DC0ADA511C4CC1B700D43A44 /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */; };
 		DC0ADA521C4CC1B700D43A44 /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0ADA501C4CC1B700D43A44 /* YPAPISample.m */; };
+		DC47C9AD1C7A83E3007B68CB /* SavedBusiness+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DC47C9AA1C7A83E3007B68CB /* SavedBusiness+CoreDataProperties.m */; };
+		DC47C9AE1C7A83E3007B68CB /* SavedBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = DC47C9AC1C7A83E3007B68CB /* SavedBusiness.m */; };
 		DC6BF5541C76C3CA00ED42A0 /* CategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6BF5531C76C3CA00ED42A0 /* CategoryViewCell.m */; };
 		DC6BF5571C76DE8F00ED42A0 /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6BF5561C76DE8F00ED42A0 /* FavoriteViewController.m */; };
 		DC6BF55A1C76DEF300ED42A0 /* FavoriteViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6BF5591C76DEF300ED42A0 /* FavoriteViewTableViewCell.m */; };
@@ -21,6 +23,8 @@
 		DC77D35E1C4C4C2400D2E06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC77D35D1C4C4C2400D2E06B /* Assets.xcassets */; };
 		DC77D36C1C4C4C2400D2E06B /* WhatToEatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D36B1C4C4C2400D2E06B /* WhatToEatTests.m */; };
 		DC77D3771C4C4C2400D2E06B /* WhatToEatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC77D3761C4C4C2400D2E06B /* WhatToEatUITests.m */; };
+		DC9527961C7A6EB00093C29A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC9527941C7A6EB00093C29A /* Model.xcdatamodeld */; };
+		DC9527991C7A715B0093C29A /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9527981C7A715B0093C29A /* DataController.m */; };
 		DCE79F7A1C4C6ADF00C46E1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE79F791C4C6ADF00C46E1F /* Images.xcassets */; };
 		DCE79F7D1C4C732700C46E1F /* DraggableViewBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE79F7C1C4C732700C46E1F /* DraggableViewBackground.m */; };
 		DCE79F821C4C739200C46E1F /* DraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE79F7F1C4C739200C46E1F /* DraggableView.m */; };
@@ -54,6 +58,10 @@
 		DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+OAuth.m"; sourceTree = "<group>"; };
 		DC0ADA4F1C4CC1B700D43A44 /* YPAPISample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPAPISample.h; sourceTree = "<group>"; };
 		DC0ADA501C4CC1B700D43A44 /* YPAPISample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPAPISample.m; sourceTree = "<group>"; };
+		DC47C9A91C7A83E3007B68CB /* SavedBusiness+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SavedBusiness+CoreDataProperties.h"; sourceTree = "<group>"; };
+		DC47C9AA1C7A83E3007B68CB /* SavedBusiness+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SavedBusiness+CoreDataProperties.m"; sourceTree = "<group>"; };
+		DC47C9AB1C7A83E3007B68CB /* SavedBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedBusiness.h; sourceTree = "<group>"; };
+		DC47C9AC1C7A83E3007B68CB /* SavedBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedBusiness.m; sourceTree = "<group>"; };
 		DC6BF5521C76C3CA00ED42A0 /* CategoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewCell.h; sourceTree = "<group>"; };
 		DC6BF5531C76C3CA00ED42A0 /* CategoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewCell.m; sourceTree = "<group>"; };
 		DC6BF5551C76DE8F00ED42A0 /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
@@ -74,6 +82,9 @@
 		DC77D36D1C4C4C2400D2E06B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC77D3761C4C4C2400D2E06B /* WhatToEatUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatToEatUITests.m; sourceTree = "<group>"; };
 		DC77D3781C4C4C2400D2E06B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC9527951C7A6EB00093C29A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DC9527971C7A715B0093C29A /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
+		DC9527981C7A715B0093C29A /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
 		DCE79F791C4C6ADF00C46E1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DCE79F7B1C4C732700C46E1F /* DraggableViewBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableViewBackground.h; sourceTree = "<group>"; };
 		DCE79F7C1C4C732700C46E1F /* DraggableViewBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableViewBackground.m; sourceTree = "<group>"; };
@@ -149,6 +160,7 @@
 		DC77D34D1C4C4C2400D2E06B /* WhatToEat */ = {
 			isa = PBXGroup;
 			children = (
+				DC9527A01C7A78EC0093C29A /* DataModels */,
 				DC0ADA4D1C4CC1B700D43A44 /* NSURLRequest+OAuth.h */,
 				DC0ADA4E1C4CC1B700D43A44 /* NSURLRequest+OAuth.m */,
 				DC0ADA4F1C4CC1B700D43A44 /* YPAPISample.h */,
@@ -177,6 +189,9 @@
 				DC6BF5561C76DE8F00ED42A0 /* FavoriteViewController.m */,
 				DC6BF5581C76DEF300ED42A0 /* FavoriteViewTableViewCell.h */,
 				DC6BF5591C76DEF300ED42A0 /* FavoriteViewTableViewCell.m */,
+				DC9527941C7A6EB00093C29A /* Model.xcdatamodeld */,
+				DC9527971C7A715B0093C29A /* DataController.h */,
+				DC9527981C7A715B0093C29A /* DataController.m */,
 			);
 			path = WhatToEat;
 			sourceTree = "<group>";
@@ -205,6 +220,17 @@
 				DC77D3781C4C4C2400D2E06B /* Info.plist */,
 			);
 			path = WhatToEatUITests;
+			sourceTree = "<group>";
+		};
+		DC9527A01C7A78EC0093C29A /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				DC47C9A91C7A83E3007B68CB /* SavedBusiness+CoreDataProperties.h */,
+				DC47C9AA1C7A83E3007B68CB /* SavedBusiness+CoreDataProperties.m */,
+				DC47C9AB1C7A83E3007B68CB /* SavedBusiness.h */,
+				DC47C9AC1C7A83E3007B68CB /* SavedBusiness.m */,
+			);
+			name = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,10 +415,14 @@
 				DC0ADA511C4CC1B700D43A44 /* NSURLRequest+OAuth.m in Sources */,
 				DCE79F821C4C739200C46E1F /* DraggableView.m in Sources */,
 				DC6BF55A1C76DEF300ED42A0 /* FavoriteViewTableViewCell.m in Sources */,
+				DC47C9AD1C7A83E3007B68CB /* SavedBusiness+CoreDataProperties.m in Sources */,
+				DC47C9AE1C7A83E3007B68CB /* SavedBusiness.m in Sources */,
+				DC9527961C7A6EB00093C29A /* Model.xcdatamodeld in Sources */,
 				DC77D3591C4C4C2400D2E06B /* CollectionViewController.m in Sources */,
 				DC6BF5541C76C3CA00ED42A0 /* CategoryViewCell.m in Sources */,
 				DCE79F831C4C739200C46E1F /* OverlayView.m in Sources */,
 				DC77D3531C4C4C2400D2E06B /* AppDelegate.m in Sources */,
+				DC9527991C7A715B0093C29A /* DataController.m in Sources */,
 				DC6BF5571C76DE8F00ED42A0 /* FavoriteViewController.m in Sources */,
 				DC77D3561C4C4C2400D2E06B /* SwipeViewController.m in Sources */,
 				DC77D3501C4C4C2400D2E06B /* main.m in Sources */,
@@ -632,6 +662,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DC9527941C7A6EB00093C29A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DC9527951C7A6EB00093C29A /* Model.xcdatamodel */,
+			);
+			currentVersion = DC9527951C7A6EB00093C29A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DC77D3431C4C4C2400D2E06B /* Project object */;
 }

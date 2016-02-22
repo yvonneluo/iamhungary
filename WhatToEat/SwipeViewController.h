@@ -10,6 +10,6 @@
 
 @interface SwipeViewController : UIViewController
 
-
+@property (nonatomic, strong) NSString *searchTerm;
 @end
 
