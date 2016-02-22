@@ -35,16 +35,6 @@
         [self.view addSubview:self.mySpinner];
         [self.mySpinner startAnimating];
         [self performSelector:@selector(searchAndRender) withObject:nil afterDelay:0.1];
-        /*
-        [self searchYelpApiWithTerm];
-        CGRect draggableViewFrame = self.view.frame;
-        draggableViewFrame.size.height = self.view.frame.size.height - self.headerImage.frame.size.height;
-        draggableViewFrame.origin.y = self.headerImage.frame.size.height;
-
-
-        _draggableViewBackground = [[DraggableViewBackground alloc]initWithFrame:draggableViewFrame responseDictionary:_biz_arrs];
-        [self.view addSubview:_draggableViewBackground];
-        [self.view bringSubviewToFront:_draggableViewBackground];*/
     }
 }
 
@@ -55,51 +45,6 @@
     [self.view addSubview:self.mySpinner];
     [self.mySpinner startAnimating];
     [self performSelector:@selector(searchAndRender) withObject:nil afterDelay:0.1];
-    /*
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivedNotification:)
-                                                 name:@"Finished loading business"
-                                               object:nil];
-
-    NSString *defaultTerm = @"lolo";
-    NSString *defaultLocation = @"San Francisco, CA";
-
-    //Get the term and location from the command line if there were any, otherwise assign default values.
-    NSString *term = _searchTerm ?: defaultTerm;
-    [[NSUserDefaults standardUserDefaults] setObject:term forKey:@"last_search_term"];
-
-
-    NSString *location = [[NSUserDefaults standardUserDefaults] valueForKey:@"location"] ?: defaultLocation;
-
-    YPAPISample *APISample = [[YPAPISample alloc] init];
-
-    dispatch_group_t requestGroup = dispatch_group_create();
-
-    dispatch_group_enter(requestGroup);
-    [APISample queryTopBusinessInfoForTerm:term
-                                  location:location
-                         completionHandler:^(NSDictionary *businesses, NSError *error) {
-        if (error) {
-            NSLog(@"An error happened during the request: %@", error);
-        } else if (businesses) {
-            //NSLog(@"Business array info: \n %@", businesses);
-            NSMutableArray *arrs = [[NSMutableArray alloc] init];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"Finished loading business" object:self];
-            for (id business in businesses) {
-                Business * biz = [[Business alloc] initWithBizJson:business];
-                [arrs addObject:biz];
-            }
-            _biz_arrs = [[NSArray alloc] initWithArray:arrs];
-        } else {
-            NSLog(@"No business was found");
-        }
-
-        dispatch_group_leave(requestGroup);
-    }];
-
-    dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.*/
-    //[self searchYelpApiWithTerm];
-
 }
 
 
@@ -117,7 +62,7 @@
         _mySpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         _mySpinner.center = CGPointMake(screenRect.size.width / 2, screenRect.size.height / 2);
         _mySpinner.hidesWhenStopped = YES;
-        CGAffineTransform transform = CGAffineTransformMakeScale(2.0f, 2.0f);
+        CGAffineTransform transform = CGAffineTransformMakeScale(1.0f, 1.0f);
         _mySpinner.transform = transform;
         _mySpinner.layer.cornerRadius = 05;
         _mySpinner.opaque = YES;

@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "SavedBusiness.h"
 
+#define RAND_FROM_TO(min, max) (min + arc4random_uniform(max - min + 1))
+
 @interface DraggableViewBackground ()
 
 @property(nonatomic, strong) UIButton * likeButton;
@@ -108,7 +110,11 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
         // are showing at once and clogging a ton of data
         for (int i = 0; i<[loadedCards count]; i++) {
             if (i>0) {
-                [self insertSubview:[loadedCards objectAtIndex:i] belowSubview:[loadedCards objectAtIndex:i-1]];
+                DraggableView *subView = [loadedCards objectAtIndex:i];
+                float degrees = RAND_FROM_TO(0, 5) ; //the value in degrees
+                subView.transform = CGAffineTransformMakeRotation(degrees * M_PI/180);
+
+                [self insertSubview:subView belowSubview:[loadedCards objectAtIndex:i-1]];
             } else {
                 [self addSubview:[loadedCards objectAtIndex:i]];
             }
@@ -116,6 +122,10 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
         }
         //[self addSubview:self.headerImage];
     }
+}
+
+- (NSInteger)randomValueBetween:(NSInteger)min and:(NSInteger)max {
+    return (NSInteger)(min + arc4random_uniform(max - min + 1));
 }
 
 -(UIButton *)likeButton {
@@ -139,7 +149,12 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
     if (cardsLoadedIndex < [allCards count]) { //%%% if we haven't reached the end of all cards, put another into the loaded cards
         [loadedCards addObject:[allCards objectAtIndex:cardsLoadedIndex]];
         cardsLoadedIndex++;//%%% loaded a card, so have to increment count
-        [self insertSubview:[loadedCards objectAtIndex:(MAX_BUFFER_SIZE-1)] belowSubview:[loadedCards objectAtIndex:(MAX_BUFFER_SIZE-2)]];
+
+        DraggableView *subView = [loadedCards objectAtIndex:(MAX_BUFFER_SIZE-1)];
+        float degrees = RAND_FROM_TO(0, 5) ; //the value in degrees
+        subView.transform = CGAffineTransformMakeRotation(degrees * M_PI/180);
+
+        [self insertSubview: subView belowSubview:[loadedCards objectAtIndex:(MAX_BUFFER_SIZE-2)]];
     }
 }
 
@@ -156,7 +171,12 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
     if (cardsLoadedIndex < [allCards count]) { //%%% if we haven't reached the end of all cards, put another into the loaded cards
         [loadedCards addObject:[allCards objectAtIndex:cardsLoadedIndex]];
         cardsLoadedIndex++;//%%% loaded a card, so have to increment count
-        [self insertSubview:[loadedCards objectAtIndex:(MAX_BUFFER_SIZE-1)] belowSubview:[loadedCards objectAtIndex:(MAX_BUFFER_SIZE-2)]];
+
+        DraggableView *subView = [loadedCards objectAtIndex:(MAX_BUFFER_SIZE-1)];
+        float degrees = RAND_FROM_TO(0, 5) ; //the value in degrees
+        subView.transform = CGAffineTransformMakeRotation(degrees * M_PI/180);
+
+        [self insertSubview:subView belowSubview:[loadedCards objectAtIndex:(MAX_BUFFER_SIZE-2)]];
     }
     
 }
@@ -170,7 +190,7 @@ static const float CARD_WIDTH = 375; //%%% width of the draggable card
         dragView.overlayView.alpha = 1;
     }];
     [dragView rightClickAction];
-    [self saveBusinessIntoContext:dragView.business];
+    //[self saveBusinessIntoContext:dragView.business];
 
 }
 
