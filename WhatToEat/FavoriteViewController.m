@@ -10,10 +10,17 @@
 #import "YPAPISample.h"
 #import "Business.h"
 #import "FavoriteViewTableViewCell.h"
+#import "AppDelegate.h"
+#import <CoreData/CoreData.h>
+
 @interface FavoriteViewController ()
+
 @property (nonatomic, strong) NSArray * biz_arrs;
 @property (nonatomic, strong) UILabel * headerLabel;
+@property (nonatomic, strong) UIImageView* headerImage;
+
 @end
+
 extern NSString * const SMCombinedTablePaneViewControllerCellReuseIdentifier;
 @implementation FavoriteViewController
 
@@ -27,40 +34,17 @@ extern NSString * const SMCombinedTablePaneViewControllerCellReuseIdentifier;
 }
 
 -(void)getBusinesses {
-    NSString *defaultTerm = @"restaurant";
-    NSString *defaultLocation = @"San Francisco, CA";
+    AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *moc = ad.managedObjectContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SavedBusiness"];
 
-    //Get the term and location from the command line if there were any, otherwise assign default values.
-    NSString *term = [[NSUserDefaults standardUserDefaults] valueForKey:@"term"] ?: defaultTerm;
-    NSString *location = [[NSUserDefaults standardUserDefaults] valueForKey:@"location"] ?: defaultLocation;
-
-    YPAPISample *APISample = [[YPAPISample alloc] init];
-
-    dispatch_group_t requestGroup = dispatch_group_create();
-
-    dispatch_group_enter(requestGroup);
-    [APISample queryTopBusinessInfoForTerm:term
-                                  location:location
-                         completionHandler:^(NSDictionary *businesses, NSError *error) {
-                             if (error) {
-                                 //NSLog(@"An error happened during the request: %@", error);
-                             } else if (businesses) {
-                                 //NSLog(@"Business array info: \n %@", businesses);
-                                 NSMutableArray *arrs = [[NSMutableArray alloc] init];
-                                 [[NSNotificationCenter defaultCenter] postNotificationName:@"Finished loading business" object:self];
-                                 for (id business in businesses) {
-                                     Business * biz = [[Business alloc] initWithBizJson:business];
-                                     [arrs addObject:biz];
-                                 }
-                                 _biz_arrs = [[NSArray alloc] initWithArray:arrs];
-                             } else {
-                                 NSLog(@"No business was found");
-                             }
-
-                             dispatch_group_leave(requestGroup);
-                         }];
-    dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
-
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Employee objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    _biz_arrs = [[NSArray alloc] initWithArray:results];
 }
 
 - (void)loadView {
@@ -76,11 +60,7 @@ extern NSString * const SMCombinedTablePaneViewControllerCellReuseIdentifier;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
     self.tableView.scrollEnabled = YES;
-    self.tableView.bounces = NO;
-
-    //[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-
-    //[self.headerView addSubview:self.closeButton];
+    self.tableView.bounces = YES;
 }
 
 
@@ -102,7 +82,7 @@ extern NSString * const SMCombinedTablePaneViewControllerCellReuseIdentifier;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return self.headerLabel;
+    return self.headerImage;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -123,15 +103,41 @@ extern NSString * const SMCombinedTablePaneViewControllerCellReuseIdentifier;
 }
 
 -(UILabel *)headerLabel {
-    if(!_headerLabel) {
+    if (!_headerLabel) {
         _headerLabel = [[UILabel alloc] init];
         _headerLabel.text = @"yelpscover";
         _headerLabel.textColor = [UIColor whiteColor];
-        _headerLabel.backgroundColor = [UIColor colorWithRed:231.0/255 green:51.0/255 blue:25.0/255 alpha:1];
+        _headerLabel.backgroundColor = [UIColor colorWithRed:231.0 / 255 green:51.0 / 255 blue:25.0 / 255 alpha:1];
         _headerLabel.font = [UIFont fontWithName:@"Baskerville-BoldItalic" size:35];
         _headerLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _headerLabel;
+
+}
+
+-(UIImageView *)headerImage{
+    if(!_headerImage){
+        _headerImage= [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"header"]];
+        CGRect headerFrame = _headerImage.frame;
+        headerFrame.size.width = self.view.frame.size.width;
+        //headerFrame.size.height = 80;
+        _headerImage.frame = headerFrame;
+    }
+    return _headerImage;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat height = scrollView.frame.size.height;
+
+    CGFloat contentYoffset = scrollView.contentOffset.y;
+
+    CGFloat distanceFromBottom = scrollView.contentSize.height - contentYoffset;
+
+    if(distanceFromBottom < height)
+    {
+        NSLog(@"end of the table");
+    }
 }
 /*
 // Override to support conditional editing of the table view.

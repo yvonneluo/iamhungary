@@ -20,7 +20,7 @@
 @interface DraggableView ()
 
 @property(nonatomic, strong) UIImageView *imageView;
-@property(nonatomic, strong) Business * business;
+
 
 
 @end

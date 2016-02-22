@@ -15,6 +15,7 @@ static UIEdgeInsets SMInboxMessageViewInsets = (UIEdgeInsets){10, 10, 10, 10};
 
 @interface CollectionViewController ()
 @property (nonatomic, strong) UILabel * headerLabel;
+@property (nonatomic, strong) UIImageView *headerImage;
 @property (nonatomic, strong) UICollectionView *categoriesView;
 @property (nonatomic, strong) NSMutableArray *categoriesName;
 @property (nonatomic, strong) UIActivityIndicatorView *mySpinner;
@@ -39,7 +40,8 @@ static UIEdgeInsets SMInboxMessageViewInsets = (UIEdgeInsets){10, 10, 10, 10};
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.headerLabel];
+    //[self.view addSubview:self.headerLabel];
+    [self.view addSubview:self.headerImage];
 
     [self.collectionView registerClass:[CategoryViewCell class] forCellWithReuseIdentifier:kSMInboxMessageDetailsViewCellReuseIdentifier];
     [self.view addSubview:self.collectionView];
@@ -112,7 +114,16 @@ static UIEdgeInsets SMInboxMessageViewInsets = (UIEdgeInsets){10, 10, 10, 10};
     return _headerLabel;
 }
 
-
+-(UIImageView *) headerImage{
+    if(!_headerImage){
+        _headerImage= [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"header"]];
+        CGRect headerFrame = _headerImage.frame;
+        headerFrame.size.width = self.view.frame.size.width;
+        headerFrame.size.height = 80;
+        _headerImage.frame = headerFrame;
+    }
+    return _headerImage;
+}
 
 #pragma mark - UICollectionView DataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -165,7 +176,7 @@ static UIEdgeInsets SMInboxMessageViewInsets = (UIEdgeInsets){10, 10, 10, 10};
     [self.view bringSubviewToFront:_mySpinner];
     [_mySpinner startAnimating];
 
-    SwipeViewController *swipeViewController = (SwipeViewController *)[self.tabBarController.viewControllers objectAtIndex:0];
+    SwipeViewController *swipeViewController = (SwipeViewController *)[self.tabBarController.viewControllers objectAtIndex:1];
     swipeViewController.searchTerm = _categoriesName[indexPath.row];
     if ([swipeViewController.searchTerm isEqualToString:@"italian"]) {
         swipeViewController.searchTerm = @"lolo";
@@ -175,7 +186,7 @@ static UIEdgeInsets SMInboxMessageViewInsets = (UIEdgeInsets){10, 10, 10, 10};
 }
 
 - (void)selectSearchTerm {
-    self.tabBarController.selectedIndex = 0;
+    self.tabBarController.selectedIndex = 1;
 }
 
 
