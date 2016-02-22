@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSArray * biz_arrs;
 @property (nonatomic, strong) DraggableViewBackground* draggableViewBackground;
 @property (nonatomic, strong) UIView *loadingView;
+@property (nonatomic, strong) UIActivityIndicatorView *mySpinner;
+@property (nonatomic, strong) UIImageView *headerImage;
 @end
 
 @implementation SwipeViewController
@@ -30,15 +32,30 @@
 
         NSLog(@"Search term changed");
         [self.draggableViewBackground removeFromSuperview];
+        [self.view addSubview:self.mySpinner];
+        [self.mySpinner startAnimating];
+        [self performSelector:@selector(searchAndRender) withObject:nil afterDelay:0.1];
+        /*
         [self searchYelpApiWithTerm];
-        _draggableViewBackground = [[DraggableViewBackground alloc]initWithFrame:self.view.frame responseDictionary:_biz_arrs];
+        CGRect draggableViewFrame = self.view.frame;
+        draggableViewFrame.size.height = self.view.frame.size.height - self.headerImage.frame.size.height;
+        draggableViewFrame.origin.y = self.headerImage.frame.size.height;
+
+
+        _draggableViewBackground = [[DraggableViewBackground alloc]initWithFrame:draggableViewFrame responseDictionary:_biz_arrs];
         [self.view addSubview:_draggableViewBackground];
-        [self.view bringSubviewToFront:_draggableViewBackground];
+        [self.view bringSubviewToFront:_draggableViewBackground];*/
     }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.headerImage];
+    [self.view addSubview:self.mySpinner];
+    [self.mySpinner startAnimating];
+    [self performSelector:@selector(searchAndRender) withObject:nil afterDelay:0.1];
+    /*
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedNotification:)
                                                  name:@"Finished loading business"
@@ -80,11 +97,9 @@
         dispatch_group_leave(requestGroup);
     }];
 
-    dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
+    dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.*/
     //[self searchYelpApiWithTerm];
-    _draggableViewBackground = [[DraggableViewBackground alloc]initWithFrame:self.view.frame responseDictionary:_biz_arrs];
-    [self.view addSubview:_draggableViewBackground];
-    [self.view bringSubviewToFront:_draggableViewBackground];
+
 }
 
 
@@ -94,6 +109,37 @@
         _loadingView.backgroundColor = [UIColor yellowColor];
     }
     return _loadingView;
+}
+
+- (UIActivityIndicatorView *)mySpinner {
+    if (!_mySpinner) {
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        _mySpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _mySpinner.center = CGPointMake(screenRect.size.width / 2, screenRect.size.height / 2);
+        _mySpinner.hidesWhenStopped = YES;
+        CGAffineTransform transform = CGAffineTransformMakeScale(2.0f, 2.0f);
+        _mySpinner.transform = transform;
+        _mySpinner.layer.cornerRadius = 05;
+        _mySpinner.opaque = YES;
+        _mySpinner.backgroundColor = [UIColor clearColor];
+        _mySpinner.center = self.view.center;
+        _mySpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        [_mySpinner setColor:[UIColor colorWithRed:231.0 / 255 green:51.0 / 255 blue:25.0 / 255 alpha:1]];//[UIColor colorWithRed:0.6 green:0.8 blue:1.0 alpha:1.0]];
+
+    }
+    return _mySpinner;
+}
+
+- (void)searchAndRender {
+    [self searchYelpApiWithTerm];
+    CGRect draggableViewFrame = self.view.frame;
+    draggableViewFrame.size.height = self.view.frame.size.height - self.headerImage.frame.size.height;
+    draggableViewFrame.origin.y = self.headerImage.frame.size.height;
+
+    _draggableViewBackground = [[DraggableViewBackground alloc]initWithFrame:draggableViewFrame responseDictionary:_biz_arrs];
+    [self.view addSubview:_draggableViewBackground];
+    [self.view bringSubviewToFront:_draggableViewBackground];
+
 }
 
 - (void)searchYelpApiWithTerm{
@@ -159,4 +205,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(UIImageView *) headerImage{
+    if(!_headerImage){
+        _headerImage= [[UIImageView alloc] initWithImage:[UIImage imageNamed: @"header"]];
+        CGRect headerFrame = _headerImage.frame;
+        headerFrame.size.width = self.view.frame.size.width;
+        headerFrame.size.height = 80;
+        _headerImage.frame = headerFrame;
+    }
+    return _headerImage;
+}
 @end
